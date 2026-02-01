@@ -3,120 +3,239 @@
  * DELICATTA JOALHERIA - Seção de Contato
  * ═══════════════════════════════════════════════════════════════════════════════
  * 
- * Este componente exibe as informações de contato da loja.
+ * Este componente exibe o formulário de contato e informações da loja.
  * 
  * COMO EDITAR:
  * - Altere as constantes abaixo com suas informações
- * - Substitua os links do WhatsApp e Instagram
+ * - Substitua os links do WhatsApp, Instagram e Facebook
  * 
  * ═══════════════════════════════════════════════════════════════════════════════
  */
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Facebook } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // INFORMAÇÕES DE CONTATO - Edite aqui com seus dados
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Número do WhatsApp (formato: código do país + DDD + número, sem espaços ou símbolos)
-// Exemplo: "5511999999999" para São Paulo
+const PHONE_NUMBER = "(11) 99999-9999";
 const WHATSAPP_NUMBER = "5511999999999";
+const EMAIL = "contato@delicatta.com.br";
+const STORE_ADDRESS = "Rua das Joias, 123 - Centro";
+const STORE_CITY = "São Paulo - SP";
+const STORE_HOURS = "Seg a Sáb: 9h às 18h";
 
-// Mensagem pré-definida do WhatsApp
+// Links das redes sociais
 const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Delicatta e gostaria de saber mais sobre as joias.";
-
-// Nome de usuário do Instagram (sem o @)
 const INSTAGRAM_USERNAME = "delicattajoalheria";
-
-// Endereço da loja (pode deixar vazio se não quiser exibir)
-const STORE_ADDRESS = "Rua das Joias, 123 - Centro\nSão Paulo - SP";
-
-// Horário de funcionamento
-const STORE_HOURS = "Segunda a Sábado: 9h às 18h";
+const FACEBOOK_USERNAME = "delicattajoalheria";
 
 export function Contact() {
-  // Monta o link do WhatsApp
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  
-  // Monta o link do Instagram
   const instagramLink = `https://instagram.com/${INSTAGRAM_USERNAME}`;
+  const facebookLink = `https://facebook.com/${FACEBOOK_USERNAME}`;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aqui você pode adicionar a lógica de envio do formulário
+    toast({
+      title: "Mensagem enviada!",
+      description: "Entraremos em contato em breve.",
+    });
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
-    <section id="contato" className="bg-background py-16">
+    <section id="contato" className="bg-primary py-16">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* ─────────────────────────────────────────────────────────────────
-           * TÍTULO
-           * ───────────────────────────────────────────────────────────────── */}
-          <h2 className="mb-6 font-serif text-3xl font-bold text-foreground md:text-4xl">
-            Entre em <span className="text-accent">Contato</span>
+        {/* ─────────────────────────────────────────────────────────────────
+         * TÍTULO
+         * ───────────────────────────────────────────────────────────────── */}
+        <div className="mb-12 text-center">
+          <span className="mb-2 block text-sm font-semibold uppercase tracking-widest text-accent">
+            Fale Conosco
+          </span>
+          <h2 className="mb-4 font-serif text-3xl font-bold text-primary-foreground md:text-4xl">
+            Entre em Contato
           </h2>
-          <p className="mb-10 text-lg text-muted-foreground">
-            Ficou com alguma dúvida? Entre em contato conosco!
+          <p className="text-primary-foreground/70">
+            Estamos prontos para atendê-lo. Envie uma mensagem ou visite nossa loja física.
           </p>
+        </div>
 
+        {/* ─────────────────────────────────────────────────────────────────
+         * GRID COM FORMULÁRIO E INFORMAÇÕES
+         * ───────────────────────────────────────────────────────────────── */}
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
           {/* ─────────────────────────────────────────────────────────────────
-           * BOTÕES DE CONTATO
+           * FORMULÁRIO DE CONTATO
            * ───────────────────────────────────────────────────────────────── */}
-          <div className="mb-10 flex flex-col justify-center gap-4 sm:flex-row">
-            {/* Botão WhatsApp */}
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+          <div className="rounded-lg border border-accent/30 bg-primary p-8">
+            <h3 className="mb-6 text-xl font-semibold text-primary-foreground">
+              Envie sua mensagem
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="mb-2 block text-sm text-primary-foreground">
+                  Nome completo
+                </label>
+                <Input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Seu nome"
+                  required
+                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-primary-foreground">
+                  E-mail
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="seu@email.com"
+                  required
+                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-primary-foreground">
+                  Telefone
+                </label>
+                <Input
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="(11) 99999-9999"
+                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-primary-foreground">
+                  Mensagem
+                </label>
+                <Textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Como podemos ajudá-lo?"
+                  required
+                  rows={5}
+                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
+                />
+              </div>
               <Button
-                size="lg"
-                className="w-full bg-green-600 text-white hover:bg-green-700 sm:w-auto"
+                type="submit"
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <svg
-                  className="mr-2 h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                WhatsApp
+                Enviar mensagem
               </Button>
-            </a>
-
-            {/* Botão Instagram */}
-            <a href={instagramLink} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white hover:opacity-90 sm:w-auto"
-              >
-                <svg
-                  className="mr-2 h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-                Instagram
-              </Button>
-            </a>
+            </form>
           </div>
 
           {/* ─────────────────────────────────────────────────────────────────
-           * INFORMAÇÕES ADICIONAIS
+           * INFORMAÇÕES DE CONTATO
            * ───────────────────────────────────────────────────────────────── */}
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Endereço */}
-            {STORE_ADDRESS && (
-              <div className="rounded-lg bg-card p-6 text-center shadow-sm">
-                <span className="mb-3 block text-2xl">📍</span>
-                <h3 className="mb-2 font-semibold text-foreground">Endereço</h3>
-                <p className="whitespace-pre-line text-sm text-muted-foreground">
-                  {STORE_ADDRESS}
-                </p>
+          <div className="rounded-lg border border-accent/30 bg-primary p-8">
+            <h3 className="mb-8 text-xl font-semibold text-primary-foreground">
+              Informações de Contato
+            </h3>
+            
+            <div className="space-y-6">
+              {/* Telefone */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
+                  <Phone className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-primary-foreground">Telefone</h4>
+                  <p className="text-primary-foreground/70">{PHONE_NUMBER}</p>
+                </div>
               </div>
-            )}
 
-            {/* Horário */}
-            {STORE_HOURS && (
-              <div className="rounded-lg bg-card p-6 text-center shadow-sm">
-                <span className="mb-3 block text-2xl">🕐</span>
-                <h3 className="mb-2 font-semibold text-foreground">Horário</h3>
-                <p className="text-sm text-muted-foreground">{STORE_HOURS}</p>
+              {/* E-mail */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
+                  <Mail className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-primary-foreground">E-mail</h4>
+                  <p className="text-primary-foreground/70">{EMAIL}</p>
+                </div>
               </div>
-            )}
+
+              {/* Endereço */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
+                  <MapPin className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-primary-foreground">Endereço</h4>
+                  <p className="text-primary-foreground/70">{STORE_ADDRESS}</p>
+                  <p className="text-primary-foreground/70">{STORE_CITY}</p>
+                </div>
+              </div>
+
+              {/* Horário */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
+                  <Clock className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-primary-foreground">Horário</h4>
+                  <p className="text-primary-foreground/70">{STORE_HOURS}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ─────────────────────────────────────────────────────────────────
+             * BOTÕES DE REDES SOCIAIS
+             * ───────────────────────────────────────────────────────────────── */}
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-[hsl(142,70%,35%)] text-primary-foreground hover:bg-[hsl(142,70%,30%)]">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  WhatsApp
+                </Button>
+              </a>
+              <a href={instagramLink} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  className="w-full border-accent/30 bg-transparent text-primary-foreground hover:bg-accent/10"
+                >
+                  <Instagram className="mr-2 h-4 w-4" />
+                  Instagram
+                </Button>
+              </a>
+              <a href={facebookLink} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">
+                  <Facebook className="mr-2 h-4 w-4" />
+                  Facebook
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
