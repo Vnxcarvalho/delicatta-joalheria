@@ -3,7 +3,7 @@
  * DELICATTA JOALHERIA - Catálogo de Produtos
  * ═══════════════════════════════════════════════════════════════════════════════
  * 
- * Este arquivo contém todos os 84 produtos da loja.
+ * Este arquivo contém todos os produtos da loja.
  * 
  * COMO EDITAR:
  * 
@@ -15,7 +15,7 @@
  *   price: 199.90,                   // Preço em reais (use ponto para centavos)
  *   image: "/placeholder.svg",       // Caminho da imagem (veja instruções abaixo)
  *   material: "ouro",                // Opções: "ouro", "prata" ou "aco"
- *   type: "brinco",                  // Opções: "brinco", "alianca", "pulseira" ou "colar"
+ *   type: "brinco",                  // Opções: veja lista de tipos abaixo
  *   available: true,                 // true = disponível, false = esgotado
  * }
  * 
@@ -44,12 +44,120 @@
  * - "aco"   → Joias em aço
  * 
  * ─────────────────────────────────────────────────────────────────────────────
- * TIPOS DE JOIAS:
+ * TIPOS DE JOIAS (use exatamente como está escrito):
  * ─────────────────────────────────────────────────────────────────────────────
- * - "brinco"   → Brincos
- * - "alianca"  → Alianças
- * - "pulseira" → Pulseiras
- * - "colar"    → Colares
+ * - "brinco"    → Brincos
+ * - "alianca"   → Alianças
+ * - "pulseira"  → Pulseiras
+ * - "colar"     → Colares
+ * - "anel"      → Anéis
+ * - "bracelete" → Braceletes
+ * - "argola"    → Argolas
+ * - "cordao"    → Cordões
+ * - "piercing"  → Piercings
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * 
+ * EXEMPLOS DE COMO ADICIONAR PRODUTOS EM CADA CATEGORIA:
+ * 
+ * ─── BRINCO ───
+ * {
+ *   id: 100,
+ *   name: "Brinco Dourado Elegante",
+ *   price: 299.90,
+ *   image: "/products/brinco-01.jpg",
+ *   material: "ouro",
+ *   type: "brinco",        // ← Use "brinco" para aparecer na categoria Brincos
+ *   available: true,
+ * },
+ * 
+ * ─── ALIANÇA ───
+ * {
+ *   id: 101,
+ *   name: "Aliança Amor Eterno",
+ *   price: 899.90,
+ *   image: "/products/alianca-01.jpg",
+ *   material: "ouro",
+ *   type: "alianca",       // ← Use "alianca" para aparecer na categoria Alianças
+ *   available: true,
+ * },
+ * 
+ * ─── PULSEIRA ───
+ * {
+ *   id: 102,
+ *   name: "Pulseira Delicada",
+ *   price: 199.90,
+ *   image: "/products/pulseira-01.jpg",
+ *   material: "prata",
+ *   type: "pulseira",      // ← Use "pulseira" para aparecer na categoria Pulseiras
+ *   available: true,
+ * },
+ * 
+ * ─── COLAR ───
+ * {
+ *   id: 103,
+ *   name: "Colar Pingente Coração",
+ *   price: 349.90,
+ *   image: "/products/colar-01.jpg",
+ *   material: "prata",
+ *   type: "colar",         // ← Use "colar" para aparecer na categoria Colares
+ *   available: true,
+ * },
+ * 
+ * ─── ANEL ───
+ * {
+ *   id: 104,
+ *   name: "Anel Solitário Diamante",
+ *   price: 1299.90,
+ *   image: "/products/anel-01.jpg",
+ *   material: "ouro",
+ *   type: "anel",          // ← Use "anel" para aparecer na categoria Anéis
+ *   available: true,
+ * },
+ * 
+ * ─── BRACELETE ───
+ * {
+ *   id: 105,
+ *   name: "Bracelete Rígido Ouro",
+ *   price: 599.90,
+ *   image: "/products/bracelete-01.jpg",
+ *   material: "ouro",
+ *   type: "bracelete",     // ← Use "bracelete" para aparecer na categoria Braceletes
+ *   available: true,
+ * },
+ * 
+ * ─── ARGOLA ───
+ * {
+ *   id: 106,
+ *   name: "Argola Grande Prata",
+ *   price: 179.90,
+ *   image: "/products/argola-01.jpg",
+ *   material: "prata",
+ *   type: "argola",        // ← Use "argola" para aparecer na categoria Argolas
+ *   available: true,
+ * },
+ * 
+ * ─── CORDÃO ───
+ * {
+ *   id: 107,
+ *   name: "Cordão Masculino Grosso",
+ *   price: 499.90,
+ *   image: "/products/cordao-01.jpg",
+ *   material: "aco",
+ *   type: "cordao",        // ← Use "cordao" para aparecer na categoria Cordões
+ *   available: true,
+ * },
+ * 
+ * ─── PIERCING ───
+ * {
+ *   id: 108,
+ *   name: "Piercing Nariz Delicado",
+ *   price: 89.90,
+ *   image: "/products/piercing-01.jpg",
+ *   material: "prata",
+ *   type: "piercing",      // ← Use "piercing" para aparecer na categoria Piercings
+ *   available: true,
+ * },
  * 
  * ═══════════════════════════════════════════════════════════════════════════════
  */
@@ -59,7 +167,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type Material = "ouro" | "prata" | "aco";
-export type JewelryType = "brinco" | "alianca" | "pulseira" | "colar";
+export type JewelryType = "brinco" | "alianca" | "pulseira" | "colar" | "anel" | "bracelete" | "argola" | "cordao" | "piercing";
 
 export interface Product {
   id: number;
@@ -82,13 +190,28 @@ export const materialLabels: Record<Material, string> = {
 };
 
 export const typeLabels: Record<JewelryType, string> = {
-  brinco: "Brinco",
-  alianca: "Aliança",
-  pulseira: "Pulseira",
-  colar: "Colar",
+  brinco: "Brincos",
+  alianca: "Alianças",
+  pulseira: "Pulseiras",
+  colar: "Colares",
+  anel: "Anéis",
+  bracelete: "Braceletes",
+  argola: "Argolas",
+  cordao: "Cordões",
+  piercing: "Piercings",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// FUNÇÃO PARA FORMATAR PREÇO (não modifique)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export function formatPrice(price: number): string {
+  return price.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+
 // LISTA DE PRODUTOS
 // ─────────────────────────────────────────────────────────────────────────────
 // 
@@ -99,7 +222,7 @@ export const typeLabels: Record<JewelryType, string> = {
 
 export const products: Product[] = [
   // ═══════════════════════════════════════════════════════════════════════════
-  // BRINCOS EM OURO (Produtos 1-7)
+  // BRINCOS (type: "brinco")
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: 1,
@@ -112,7 +235,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: "Brinco Argola Elegante",
+    name: "Brinco Gota Elegante",
     price: 349.90,
     image: "/placeholder.svg",
     material: "ouro",
@@ -121,55 +244,6 @@ export const products: Product[] = [
   },
   {
     id: 3,
-    name: "Brinco Gota Dourada",
-    price: 259.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 4,
-    name: "Brinco Flor de Ouro",
-    price: 399.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "brinco",
-    available: false,
-  },
-  {
-    id: 5,
-    name: "Brinco Coração Luxo",
-    price: 329.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 6,
-    name: "Brinco Estrela Brilhante",
-    price: 279.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 7,
-    name: "Brinco Pérola Dourada",
-    price: 449.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "brinco",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // BRINCOS EM PRATA (Produtos 8-14)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 8,
     name: "Brinco Lua Prata",
     price: 159.90,
     image: "/placeholder.svg",
@@ -178,65 +252,7 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: 9,
-    name: "Brinco Argola Prata 925",
-    price: 189.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 10,
-    name: "Brinco Folha Prateada",
-    price: 139.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 11,
-    name: "Brinco Cristal Prata",
-    price: 199.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: false,
-  },
-  {
-    id: 12,
-    name: "Brinco Infinito Prata",
-    price: 169.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 13,
-    name: "Brinco Borboleta Prata",
-    price: 179.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 14,
-    name: "Brinco Zircônia Prata",
-    price: 219.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "brinco",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // BRINCOS EM AÇO (Produtos 15-21)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 15,
+    id: 4,
     name: "Brinco Aço Minimalista",
     price: 79.90,
     image: "/placeholder.svg",
@@ -244,66 +260,12 @@ export const products: Product[] = [
     type: "brinco",
     available: true,
   },
-  {
-    id: 16,
-    name: "Brinco Argola Aço",
-    price: 89.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 17,
-    name: "Brinco Geométrico Aço",
-    price: 69.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 18,
-    name: "Brinco Ponto Aço",
-    price: 59.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 19,
-    name: "Brinco Cruz Aço",
-    price: 99.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: false,
-  },
-  {
-    id: 20,
-    name: "Brinco Cubo Aço",
-    price: 84.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: true,
-  },
-  {
-    id: 21,
-    name: "Brinco Triângulo Aço",
-    price: 74.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "brinco",
-    available: true,
-  },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // ALIANÇAS EM OURO (Produtos 22-28)
+  // ALIANÇAS (type: "alianca")
   // ═══════════════════════════════════════════════════════════════════════════
   {
-    id: 22,
+    id: 10,
     name: "Aliança Amor Eterno",
     price: 899.90,
     image: "/placeholder.svg",
@@ -312,66 +274,8 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: 23,
-    name: "Aliança Clássica Ouro",
-    price: 799.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 24,
-    name: "Aliança Compromisso",
-    price: 699.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 25,
-    name: "Aliança Diamante Ouro",
-    price: 1299.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: false,
-  },
-  {
-    id: 26,
-    name: "Aliança Fina Ouro",
-    price: 599.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 27,
-    name: "Aliança Larga Ouro",
-    price: 999.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 28,
-    name: "Aliança Texturizada",
-    price: 849.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "alianca",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ALIANÇAS EM PRATA (Produtos 29-35)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 29,
-    name: "Aliança Prata 925",
+    id: 11,
+    name: "Aliança Clássica Prata",
     price: 299.90,
     image: "/placeholder.svg",
     material: "prata",
@@ -379,541 +283,235 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: 30,
-    name: "Aliança União Prata",
-    price: 349.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 31,
-    name: "Aliança Prata Polida",
-    price: 279.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 32,
-    name: "Aliança Prata Fosca",
-    price: 289.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 33,
-    name: "Aliança Prata com Zircônia",
-    price: 399.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: false,
-  },
-  {
-    id: 34,
-    name: "Aliança Prata Trabalhada",
-    price: 329.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 35,
-    name: "Aliança Prata Elegante",
-    price: 359.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "alianca",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ALIANÇAS EM AÇO (Produtos 36-42)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 36,
-    name: "Aliança Aço Inox",
-    price: 129.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 37,
-    name: "Aliança Aço Black",
+    id: 12,
+    name: "Aliança Compromisso Aço",
     price: 149.90,
     image: "/placeholder.svg",
     material: "aco",
     type: "alianca",
     available: true,
   },
-  {
-    id: 38,
-    name: "Aliança Aço com Detalhe",
-    price: 139.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 39,
-    name: "Aliança Aço Giratória",
-    price: 169.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 40,
-    name: "Aliança Aço Fina",
-    price: 99.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: true,
-  },
-  {
-    id: 41,
-    name: "Aliança Aço Larga",
-    price: 159.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: false,
-  },
-  {
-    id: 42,
-    name: "Aliança Aço Romano",
-    price: 179.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "alianca",
-    available: true,
-  },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // PULSEIRAS EM OURO (Produtos 43-49)
+  // PULSEIRAS (type: "pulseira")
   // ═══════════════════════════════════════════════════════════════════════════
   {
-    id: 43,
-    name: "Pulseira Elo Ouro",
-    price: 599.90,
+    id: 20,
+    name: "Pulseira Elos Ouro",
+    price: 499.90,
     image: "/placeholder.svg",
     material: "ouro",
     type: "pulseira",
     available: true,
   },
   {
-    id: 44,
-    name: "Pulseira Cartier Ouro",
-    price: 799.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 45,
-    name: "Pulseira Berloques Ouro",
-    price: 899.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 46,
-    name: "Pulseira Fina Ouro",
-    price: 449.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: false,
-  },
-  {
-    id: 47,
-    name: "Pulseira Groumet Ouro",
-    price: 699.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 48,
-    name: "Pulseira Veneziana Ouro",
-    price: 549.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 49,
-    name: "Pulseira Riviera Ouro",
-    price: 1199.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "pulseira",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // PULSEIRAS EM PRATA (Produtos 50-56)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 50,
-    name: "Pulseira Elo Prata",
-    price: 199.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 51,
-    name: "Pulseira Pandora Style",
-    price: 289.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 52,
-    name: "Pulseira Prata Delicada",
-    price: 159.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 53,
-    name: "Pulseira Prata Coração",
-    price: 179.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 54,
-    name: "Pulseira Prata Estrelas",
+    id: 21,
+    name: "Pulseira Delicada Prata",
     price: 189.90,
     image: "/placeholder.svg",
     material: "prata",
     type: "pulseira",
-    available: false,
-  },
-  {
-    id: 55,
-    name: "Pulseira Prata Infinito",
-    price: 169.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
     available: true,
   },
   {
-    id: 56,
-    name: "Pulseira Prata Bracelete",
-    price: 249.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "pulseira",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // PULSEIRAS EM AÇO (Produtos 57-63)
-  // ═══════════════════════════════════════════════════════════════════════════
-  {
-    id: 57,
-    name: "Pulseira Aço Corrente",
-    price: 89.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 58,
-    name: "Pulseira Aço Masculina",
-    price: 119.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "pulseira",
-    available: true,
-  },
-  {
-    id: 59,
-    name: "Pulseira Aço Feminina",
+    id: 22,
+    name: "Pulseira Aço Inox",
     price: 99.90,
     image: "/placeholder.svg",
     material: "aco",
     type: "pulseira",
+    available: false,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // COLARES (type: "colar")
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 30,
+    name: "Colar Pingente Coração",
+    price: 399.90,
+    image: "/placeholder.svg",
+    material: "ouro",
+    type: "colar",
     available: true,
   },
   {
-    id: 60,
-    name: "Pulseira Aço com Couro",
-    price: 139.90,
+    id: 31,
+    name: "Colar Corrente Prata",
+    price: 249.90,
+    image: "/placeholder.svg",
+    material: "prata",
+    type: "colar",
+    available: true,
+  },
+  {
+    id: 32,
+    name: "Colar Masculino Aço",
+    price: 129.90,
     image: "/placeholder.svg",
     material: "aco",
-    type: "pulseira",
+    type: "colar",
+    available: true,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ANÉIS (type: "anel")
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 40,
+    name: "Anel Solitário Ouro",
+    price: 1299.90,
+    image: "/placeholder.svg",
+    material: "ouro",
+    type: "anel",
+    available: true,
+  },
+  {
+    id: 41,
+    name: "Anel Delicado Prata",
+    price: 179.90,
+    image: "/placeholder.svg",
+    material: "prata",
+    type: "anel",
+    available: true,
+  },
+  {
+    id: 42,
+    name: "Anel Aço Design Moderno",
+    price: 89.90,
+    image: "/placeholder.svg",
+    material: "aco",
+    type: "anel",
+    available: true,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // BRACELETES (type: "bracelete")
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 50,
+    name: "Bracelete Rígido Ouro",
+    price: 699.90,
+    image: "/placeholder.svg",
+    material: "ouro",
+    type: "bracelete",
+    available: true,
+  },
+  {
+    id: 51,
+    name: "Bracelete Prata 925",
+    price: 299.90,
+    image: "/placeholder.svg",
+    material: "prata",
+    type: "bracelete",
+    available: true,
+  },
+  {
+    id: 52,
+    name: "Bracelete Aço Elegante",
+    price: 159.90,
+    image: "/placeholder.svg",
+    material: "aco",
+    type: "bracelete",
+    available: false,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ARGOLAS (type: "argola")
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 60,
+    name: "Argola Grande Ouro",
+    price: 449.90,
+    image: "/placeholder.svg",
+    material: "ouro",
+    type: "argola",
     available: true,
   },
   {
     id: 61,
-    name: "Pulseira Aço Magnética",
-    price: 149.90,
+    name: "Argola Média Prata",
+    price: 189.90,
     image: "/placeholder.svg",
-    material: "aco",
-    type: "pulseira",
+    material: "prata",
+    type: "argola",
     available: true,
   },
   {
     id: 62,
-    name: "Pulseira Aço Rosé",
-    price: 109.90,
+    name: "Argola Pequena Aço",
+    price: 69.90,
     image: "/placeholder.svg",
     material: "aco",
-    type: "pulseira",
-    available: false,
-  },
-  {
-    id: 63,
-    name: "Pulseira Aço Mesh",
-    price: 129.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "pulseira",
+    type: "argola",
     available: true,
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // COLARES EM OURO (Produtos 64-70)
+  // CORDÕES (type: "cordao")
   // ═══════════════════════════════════════════════════════════════════════════
   {
-    id: 64,
-    name: "Colar Gargantilha Ouro",
-    price: 699.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 65,
-    name: "Colar Veneziana Ouro",
-    price: 599.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 66,
-    name: "Colar Ponto de Luz Ouro",
+    id: 70,
+    name: "Cordão Cartier Ouro",
     price: 899.90,
     image: "/placeholder.svg",
     material: "ouro",
-    type: "colar",
+    type: "cordao",
     available: true,
   },
-  {
-    id: 67,
-    name: "Colar Coração Ouro",
-    price: 749.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: false,
-  },
-  {
-    id: 68,
-    name: "Colar Pingente Ouro",
-    price: 649.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 69,
-    name: "Colar Riviera Ouro",
-    price: 1499.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 70,
-    name: "Colar Choker Ouro",
-    price: 549.90,
-    image: "/placeholder.svg",
-    material: "ouro",
-    type: "colar",
-    available: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // COLARES EM PRATA (Produtos 71-77)
-  // ═══════════════════════════════════════════════════════════════════════════
   {
     id: 71,
-    name: "Colar Prata 925",
-    price: 199.90,
+    name: "Cordão Prata Masculino",
+    price: 349.90,
     image: "/placeholder.svg",
     material: "prata",
-    type: "colar",
+    type: "cordao",
     available: true,
   },
   {
     id: 72,
-    name: "Colar Prata com Zircônia",
-    price: 289.90,
+    name: "Cordão Grosso Aço",
+    price: 199.90,
     image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 73,
-    name: "Colar Prata Estrela",
-    price: 219.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 74,
-    name: "Colar Prata Lua",
-    price: 229.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 75,
-    name: "Colar Prata Olho Grego",
-    price: 249.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
-    available: false,
-  },
-  {
-    id: 76,
-    name: "Colar Prata Terço",
-    price: 279.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 77,
-    name: "Colar Prata Gota",
-    price: 259.90,
-    image: "/placeholder.svg",
-    material: "prata",
-    type: "colar",
+    material: "aco",
+    type: "cordao",
     available: true,
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // COLARES EM AÇO (Produtos 78-84)
+  // PIERCINGS (type: "piercing")
   // ═══════════════════════════════════════════════════════════════════════════
   {
-    id: 78,
-    name: "Colar Aço Corrente",
-    price: 99.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
-    available: true,
-  },
-  {
-    id: 79,
-    name: "Colar Aço com Pingente",
-    price: 119.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
-    available: true,
-  },
-  {
     id: 80,
-    name: "Colar Aço Masculino",
-    price: 139.90,
+    name: "Piercing Nariz Ouro",
+    price: 149.90,
     image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
+    material: "ouro",
+    type: "piercing",
     available: true,
   },
   {
     id: 81,
-    name: "Colar Aço Cruz",
-    price: 109.90,
+    name: "Piercing Helix Prata",
+    price: 89.90,
     image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
+    material: "prata",
+    type: "piercing",
     available: true,
   },
   {
     id: 82,
-    name: "Colar Aço Groumet",
-    price: 149.90,
+    name: "Piercing Tragus Aço",
+    price: 49.90,
     image: "/placeholder.svg",
     material: "aco",
-    type: "colar",
-    available: false,
-  },
-  {
-    id: 83,
-    name: "Colar Aço Fígaro",
-    price: 129.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
+    type: "piercing",
     available: true,
   },
-  {
-    id: 84,
-    name: "Colar Aço Veneziana",
-    price: 119.90,
-    image: "/placeholder.svg",
-    material: "aco",
-    type: "colar",
-    available: true,
-  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ADICIONE MAIS PRODUTOS ABAIXO!
+  // Copie um dos modelos acima e altere os dados
+  // Lembre-se de usar um ID único para cada produto
+  // ═══════════════════════════════════════════════════════════════════════════
 ];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// FUNÇÕES AUXILIARES (não modifique)
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * Formata o preço para exibição em Reais
- * Exemplo: 299.90 → "R$ 299,90"
- */
-export function formatPrice(price: number): string {
-  return price.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-}
