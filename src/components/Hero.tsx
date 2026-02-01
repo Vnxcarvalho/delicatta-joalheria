@@ -15,6 +15,7 @@
  */
 
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-jewelry.jpg";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TEXTOS DO BANNER - Edite aqui para personalizar
@@ -25,16 +26,22 @@ const BUTTON_TEXT = "Ver Coleção";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary py-20 md:py-32">
+    <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
       {/* ─────────────────────────────────────────────────────────────────
-       * ELEMENTOS DECORATIVOS DE FUNDO
+       * IMAGEM DE FUNDO
        * ───────────────────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-accent blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 h-48 w-48 rounded-full bg-accent blur-3xl" />
-      </div>
+      <img
+        src={heroImage}
+        alt="Coleção de joias Delicatta"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      
+      {/* ─────────────────────────────────────────────────────────────────
+       * OVERLAY ESCURO
+       * ───────────────────────────────────────────────────────────────── */}
+      <div className="absolute inset-0 bg-primary/60" />
 
-      <div className="container relative z-10 mx-auto px-4 text-center">
+      <div className="container relative z-10 mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
         {/* ─────────────────────────────────────────────────────────────────
          * TÍTULO PRINCIPAL
          * ───────────────────────────────────────────────────────────────── */}
@@ -46,7 +53,7 @@ export function Hero() {
         {/* ─────────────────────────────────────────────────────────────────
          * SUBTÍTULO
          * ───────────────────────────────────────────────────────────────── */}
-        <p className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/80 md:text-xl">
+        <p className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
           {HERO_SUBTITLE}
         </p>
 
@@ -61,26 +68,6 @@ export function Hero() {
             {BUTTON_TEXT}
           </Button>
         </a>
-
-        {/* ─────────────────────────────────────────────────────────────────
-         * ÍCONE DE SCROLL
-         * ───────────────────────────────────────────────────────────────── */}
-        <div className="mt-16 animate-bounce">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="mx-auto h-8 w-8 text-accent"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
       </div>
     </section>
   );
