@@ -42,19 +42,19 @@ const Index = () => {
       <Hero />
 
       {/* ─────────────────────────────────────────────────────────────────
+       * SEÇÃO NOSSA HISTÓRIA
+       * Informações sobre a joalheria com imagem e benefícios
+       * Arquivo: src/components/OurHistory.tsx
+       * ───────────────────────────────────────────────────────────────── */}
+      <OurHistory />
+
+      {/* ─────────────────────────────────────────────────────────────────
        * GRADE DE PRODUTOS
        * Contém os filtros e os 84 produtos
        * Arquivo: src/components/ProductGrid.tsx
        * Dados: src/data/products.ts
        * ───────────────────────────────────────────────────────────────── */}
       <ProductGrid />
-
-      {/* ─────────────────────────────────────────────────────────────────
-       * SEÇÃO NOSSA HISTÓRIA
-       * Informações sobre a joalheria com imagem e benefícios
-       * Arquivo: src/components/OurHistory.tsx
-       * ───────────────────────────────────────────────────────────────── */}
-      <OurHistory />
 
       {/* ─────────────────────────────────────────────────────────────────
        * SEÇÃO DE CONTATO
