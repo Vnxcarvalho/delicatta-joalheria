@@ -20,7 +20,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ProductGrid } from "@/components/ProductGrid";
-import { About } from "@/components/About";
+import { OurHistory } from "@/components/OurHistory";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -50,11 +50,11 @@ const Index = () => {
       <ProductGrid />
 
       {/* ─────────────────────────────────────────────────────────────────
-       * SEÇÃO SOBRE
-       * Informações sobre a joalheria
-       * Arquivo: src/components/About.tsx
+       * SEÇÃO NOSSA HISTÓRIA
+       * Informações sobre a joalheria com imagem e benefícios
+       * Arquivo: src/components/OurHistory.tsx
        * ───────────────────────────────────────────────────────────────── */}
-      <About />
+      <OurHistory />
 
       {/* ─────────────────────────────────────────────────────────────────
        * SEÇÃO DE CONTATO
