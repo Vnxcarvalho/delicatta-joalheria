@@ -24,8 +24,8 @@
      * CORES DE FUNDO E TEXTO
      * ============================================ */
     
-    /* Fundo principal (creme claro) */
-    --background: 45 30% 96%;
+    /* Fundo principal (verde bem suave/minimalista) */
+    --background: 150 15% 95%;
     
     /* Texto principal (verde escuro) */
     --foreground: 150 40% 15%;
@@ -34,8 +34,8 @@
      * CORES DOS CARDS
      * ============================================ */
     
-    /* Fundo dos cards de produto (branco) */
-    --card: 0 0% 100%;
+    /* Fundo dos cards de produto (branco com leve tom verde) */
+    --card: 150 10% 99%;
     --card-foreground: 150 40% 15%;
 
     /* ============================================
@@ -52,16 +52,16 @@
     --primary-foreground: 45 50% 90%;
 
     /* ============================================
-     * COR SECUNDÁRIA (VERDE MÉDIO)
+     * COR SECUNDÁRIA (VERDE CLARO)
      * Use esta cor para: fundos de seções, badges
      * ============================================ */
-    --secondary: 150 30% 85%;
+    --secondary: 150 20% 92%;
     --secondary-foreground: 150 40% 15%;
 
     /* ============================================
      * CORES NEUTRAS
      * ============================================ */
-    --muted: 45 20% 90%;
+    --muted: 150 10% 90%;
     --muted-foreground: 150 20% 40%;
 
     /* ============================================
@@ -80,8 +80,8 @@
     /* ============================================
      * BORDAS E INPUTS
      * ============================================ */
-    --border: 45 30% 85%;
-    --input: 45 30% 85%;
+    --border: 150 15% 85%;
+    --input: 150 15% 85%;
     --ring: 45 80% 50%;
 
     /* ============================================
@@ -109,7 +109,7 @@
     --gold-dark: 45 80% 40%;
     --green-dark: 150 40% 20%;
     --green-light: 150 30% 30%;
-    --cream: 45 30% 96%;
+    --cream: 150 15% 95%;
   }
 
   /* ============================================
