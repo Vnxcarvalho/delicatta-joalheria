@@ -1,124 +1,76 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Grade de Produtos
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este componente exibe a grade de produtos com:
- * - Filtros combinados
- * - Paginação "Ver mais/Ver menos"
- * - Layout responsivo
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Filters } from "@/components/Filters";
 import { ProductCard } from "@/components/ProductCard";
-import { products, Material, JewelryType } from "@/data/products";
+import { ProductModal } from "@/components/ProductModal";
+import { products, Material, JewelryType, Product } from "@/data/products";
+import { categoryImages } from "@/data/productImages";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CONFIGURAÇÕES - Edite aqui para alterar o comportamento
-// ─────────────────────────────────────────────────────────────────────────────
-
-// Quantidade de produtos exibidos inicialmente
 const INITIAL_PRODUCTS_TO_SHOW = 12;
-
-// Quantidade de produtos adicionados ao clicar em "Ver mais"
 const PRODUCTS_PER_LOAD = 12;
 
+// Enrich products with category images where they use placeholder
+function getProductImage(product: Product): string {
+  if (product.image === "/placeholder.svg") {
+    return categoryImages[product.type] || product.image;
+  }
+  return product.image;
+}
+
 export function ProductGrid() {
-  // ─────────────────────────────────────────────────────────────────────────────
-  // ESTADOS
-  // ─────────────────────────────────────────────────────────────────────────────
-  
-  // Filtros selecionados
   const [selectedMaterials, setSelectedMaterials] = useState<Material[]>([]);
   const [selectedTypes, setSelectedTypes] = useState<JewelryType[]>([]);
-  
-  // Controle de paginação
   const [productsToShow, setProductsToShow] = useState(INITIAL_PRODUCTS_TO_SHOW);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // ─────────────────────────────────────────────────────────────────────────────
-  // FUNÇÕES DE FILTRO
-  // ─────────────────────────────────────────────────────────────────────────────
-
-  // Toggle filtro de material
   const handleMaterialChange = (material: Material) => {
     setSelectedMaterials((prev) =>
-      prev.includes(material)
-        ? prev.filter((m) => m !== material)
-        : [...prev, material]
+      prev.includes(material) ? prev.filter((m) => m !== material) : [...prev, material]
     );
-    setProductsToShow(INITIAL_PRODUCTS_TO_SHOW); // Reset paginação ao filtrar
+    setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
   };
 
-  // Toggle filtro de tipo
   const handleTypeChange = (type: JewelryType) => {
     setSelectedTypes((prev) =>
-      prev.includes(type)
-        ? prev.filter((t) => t !== type)
-        : [...prev, type]
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
     );
-    setProductsToShow(INITIAL_PRODUCTS_TO_SHOW); // Reset paginação ao filtrar
+    setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
   };
 
-  // Limpar todos os filtros
   const handleClearFilters = () => {
     setSelectedMaterials([]);
     setSelectedTypes([]);
     setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
   };
 
-  // ─────────────────────────────────────────────────────────────────────────────
-  // PRODUTOS FILTRADOS
-  // ─────────────────────────────────────────────────────────────────────────────
-  
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      // Se nenhum material selecionado, aceita todos
       const matchesMaterial =
-        selectedMaterials.length === 0 ||
-        selectedMaterials.includes(product.material);
-
-      // Se nenhum tipo selecionado, aceita todos
+        selectedMaterials.length === 0 || selectedMaterials.includes(product.material);
       const matchesType =
         selectedTypes.length === 0 || selectedTypes.includes(product.type);
-
       return matchesMaterial && matchesType;
     });
   }, [selectedMaterials, selectedTypes]);
 
-  // Produtos visíveis na tela (com paginação)
   const visibleProducts = filteredProducts.slice(0, productsToShow);
-
-  // Controle de exibição dos botões
   const canShowMore = productsToShow < filteredProducts.length;
   const canShowLess = productsToShow > INITIAL_PRODUCTS_TO_SHOW;
 
-  // ─────────────────────────────────────────────────────────────────────────────
-  // FUNÇÕES DE PAGINAÇÃO
-  // ─────────────────────────────────────────────────────────────────────────────
-
   const handleShowMore = () => {
-    setProductsToShow((prev) =>
-      Math.min(prev + PRODUCTS_PER_LOAD, filteredProducts.length)
-    );
+    setProductsToShow((prev) => Math.min(prev + PRODUCTS_PER_LOAD, filteredProducts.length));
   };
 
   const handleShowLess = () => {
     setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
-    // Scroll suave para a seção de produtos
     document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section id="produtos" className="bg-background py-16">
       <div className="container mx-auto px-4">
-        {/* ─────────────────────────────────────────────────────────────────
-         * TÍTULO DA SEÇÃO
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Título */}
         <div className="mb-8 text-center">
           <h2 className="mb-2 font-serif text-3xl font-bold text-foreground md:text-4xl">
             Nossa <span className="text-accent">Coleção</span>
@@ -128,9 +80,7 @@ export function ProductGrid() {
           </p>
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * FILTROS
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Filtros */}
         <div className="mb-8">
           <Filters
             selectedMaterials={selectedMaterials}
@@ -141,14 +91,15 @@ export function ProductGrid() {
           />
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * GRADE DE PRODUTOS
-         * Layout: 1 coluna mobile, 2 tablet, 3 medium, 4 desktop
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Grade de Produtos */}
         {visibleProducts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
             {visibleProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={{ ...product, image: getProductImage(product) }}
+                onClick={() => setSelectedProduct({ ...product, image: getProductImage(product) })}
+              />
             ))}
           </div>
         ) : (
@@ -159,9 +110,7 @@ export function ProductGrid() {
           </div>
         )}
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * BOTÕES VER MAIS / VER MENOS
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Botões Ver Mais / Ver Menos */}
         <div className="mt-10 flex justify-center gap-4">
           {canShowMore && (
             <Button
@@ -184,6 +133,14 @@ export function ProductGrid() {
           )}
         </div>
       </div>
+
+      {/* Modal do Produto */}
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   );
 }
