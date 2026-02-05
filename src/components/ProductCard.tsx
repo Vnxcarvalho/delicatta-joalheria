@@ -1,37 +1,25 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Card de Produto
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este componente exibe um card individual de produto com:
- * - Imagem do produto
- * - Nome
- * - Preço
- * - Badge de disponibilidade
- * - Tags de material e tipo
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Product, formatPrice, materialLabels, typeLabels } from "@/data/products";
 
 interface ProductCardProps {
   product: Product;
+  onClick: () => void;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onClick }: ProductCardProps) {
   return (
-    <Card className="group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover-gold-glow">
-      {/* ─────────────────────────────────────────────────────────────────
-       * IMAGEM DO PRODUTO
-       * ───────────────────────────────────────────────────────────────── */}
+    <Card
+      className="group cursor-pointer overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover-gold-glow"
+      onClick={onClick}
+    >
+      {/* Imagem do produto */}
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img
           src={product.image}
           alt={product.name}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
         
         {/* Badge de disponibilidade */}
@@ -47,9 +35,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
 
       <CardContent className="p-4">
-        {/* ─────────────────────────────────────────────────────────────────
-         * TAGS DE MATERIAL E TIPO
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Tags de material e tipo */}
         <div className="mb-2 flex flex-wrap gap-1">
           <span className="inline-block rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground">
             {materialLabels[product.material]}
@@ -59,16 +45,12 @@ export function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * NOME DO PRODUTO
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Nome do produto */}
         <h3 className="mb-2 line-clamp-2 font-medium text-card-foreground">
           {product.name}
         </h3>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * PREÇO
-         * ───────────────────────────────────────────────────────────────── */}
+        {/* Preço */}
         <p className="text-lg font-bold text-accent">
           {formatPrice(product.price)}
         </p>
