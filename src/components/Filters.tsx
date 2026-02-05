@@ -29,8 +29,6 @@ interface FiltersProps {
   onMaterialChange: (material: Material) => void;
   onTypeChange: (type: JewelryType) => void;
   onClearFilters: () => void;
-  filteredCount: number;
-  totalCount: number;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -55,8 +53,6 @@ export function Filters({
   onMaterialChange,
   onTypeChange,
   onClearFilters,
-  filteredCount,
-  totalCount,
 }: FiltersProps) {
   const hasActiveFilters = selectedMaterials.length > 0 || selectedTypes.length > 0;
 
@@ -90,11 +86,6 @@ export function Filters({
           </div>
 
           <div className="flex flex-col items-start gap-3 lg:items-end">
-            <p className="text-sm text-muted-foreground">
-              Exibindo{" "}
-              <span className="font-semibold text-accent">{filteredCount}</span> de{" "}
-              <span className="font-semibold">{totalCount}</span> produtos
-            </p>
             {hasActiveFilters && (
               <Button
                 variant="outline"
