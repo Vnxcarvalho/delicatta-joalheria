@@ -2,16 +2,16 @@
  * ═══════════════════════════════════════════════════════════════════════════════
  * DELICATTA JOALHERIA - Seção Nossa História
  * ═══════════════════════════════════════════════════════════════════════════════
- * 
+ *
  * Esta seção exibe a história da joalheria com:
  * - Imagem de destaque com badge de anos de tradição
  * - Texto sobre a empresa
  * - 4 cards de benefícios
- * 
+ *
  * COMO EDITAR:
  * - Modifique as constantes abaixo para alterar os textos
  * - Troque a imagem substituindo HISTORY_IMAGE
- * 
+ *
  * ═══════════════════════════════════════════════════════════════════════════════
  */
 
@@ -22,8 +22,9 @@ import { Award, Shield, Heart, Truck } from "lucide-react";
 // ─────────────────────────────────────────────────────────────────────────────
 const SECTION_LABEL = "NOSSA HISTÓRIA";
 const SECTION_TITLE = "Tradição e elegância em cada detalhe";
-const SECTION_TEXT_1 = "A Delicatta nasceu do sonho de oferecer joias exclusivas que contam histórias. Há mais de uma década, selecionamos cuidadosamente cada peça para nossos clientes, garantindo qualidade, beleza e sofisticação.";
-const SECTION_TEXT_2 = "Nossa missão é transformar momentos especiais em memórias eternas, através de joias que expressam amor, conquistas e elegância.";
+const SECTION_TEXT_1 ="A Delicatta nasce da união entre tradição joalheira e olhar contemporâneo. Cada peça é cuidadosamente fabricada com atenção absoluta aos detalhes, desde o desenho inicial até o acabamento final. O processo valoriza a precisão, a harmonia das formas e o brilho perfeito do metal, garantindo joias que não apenas encantam, mas permanecem.";
+const SECTION_TEXT_2 =
+  "";
 
 // Anos de tradição (aparece no badge da imagem)
 const YEARS_OF_TRADITION = "10+";
@@ -32,7 +33,7 @@ const YEARS_LABEL = "Anos de tradição";
 // Imagem da seção (substitua pelo caminho da sua imagem)
 // Opção 1: Coloque a imagem em public/images/ e use "/images/sua-imagem.jpg"
 // Opção 2: Importe de src/assets e use a variável importada
-const HISTORY_IMAGE = "/placeholder.svg";
+const HISTORY_IMAGE = "src/public/anelouropedra.jpeg";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BENEFÍCIOS/DIFERENCIAIS - Edite aqui para personalizar os 4 cards
@@ -72,12 +73,12 @@ export function OurHistory() {
           <div className="relative">
             <div className="overflow-hidden rounded-lg shadow-2xl">
               <img
-                src={HISTORY_IMAGE}
+                src={"anelouropedra.jpeg"}
                 alt="Joias Delicatta"
-                className="h-full w-full object-cover"
+                className="h-[600px] w-[700px] object-cover object-[center_80%]"
               />
             </div>
-            
+
             {/* Badge de anos de tradição */}
             <div className="absolute bottom-6 right-6 rounded bg-accent px-6 py-3 text-center shadow-lg">
               <span className="block text-3xl font-bold text-accent-foreground">
