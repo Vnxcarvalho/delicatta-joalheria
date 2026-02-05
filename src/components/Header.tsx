@@ -1,24 +1,7 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Componente Header
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este componente exibe o cabeçalho da página com:
- * - Logo da Delicatta
- * - Menu de navegação
- * 
- * COMO EDITAR:
- * - Para alterar a logo, substitua o arquivo em src/assets/delicatta-logo.jpeg
- * - Para alterar os links do menu, edite o array "menuItems" abaixo
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
+import { useState } from "react";
+import { X, Menu } from "lucide-react";
 import logo from "@/assets/delicatta-logo.jpeg";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ITENS DO MENU - Edite aqui para alterar os links de navegação
-// ─────────────────────────────────────────────────────────────────────────────
 const menuItems = [
   { label: "Produtos", href: "#produtos" },
   { label: "Sobre", href: "#sobre" },
@@ -26,14 +9,17 @@ const menuItems = [
 ];
 
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-primary shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          {/* ─────────────────────────────────────────────────────────────────
-           * LOGO DA DELICATTA
-           * Para alterar, substitua o arquivo em src/assets/delicatta-logo.jpeg
-           * ───────────────────────────────────────────────────────────────── */}
+          {/* Logo */}
           <a href="#" className="flex items-center">
             <img
               src={logo}
@@ -42,10 +28,7 @@ export function Header() {
             />
           </a>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * MENU DE NAVEGAÇÃO
-           * Os links são definidos no array menuItems acima
-           * ───────────────────────────────────────────────────────────────── */}
+          {/* Menu Desktop */}
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-8">
               {menuItems.map((item) => (
@@ -61,27 +44,39 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * MENU MOBILE (botão hamburguer)
-           * ───────────────────────────────────────────────────────────────── */}
-          <button className="text-primary-foreground md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+          {/* Botão Menu Mobile */}
+          <button
+            className="text-primary-foreground md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
+
+      {/* Menu Mobile */}
+      {mobileMenuOpen && (
+        <nav className="border-t border-primary-foreground/10 bg-primary md:hidden">
+          <ul className="container mx-auto flex flex-col px-4 py-4">
+            {menuItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  onClick={handleNavClick}
+                  className="block py-3 text-lg font-medium text-primary-foreground transition-colors hover:text-accent"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }
