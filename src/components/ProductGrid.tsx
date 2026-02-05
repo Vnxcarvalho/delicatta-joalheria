@@ -138,8 +138,6 @@ export function ProductGrid() {
             onMaterialChange={handleMaterialChange}
             onTypeChange={handleTypeChange}
             onClearFilters={handleClearFilters}
-            filteredCount={filteredProducts.length}
-            totalCount={products.length}
           />
         </div>
 
@@ -171,7 +169,7 @@ export function ProductGrid() {
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <ChevronDown className="mr-2 h-4 w-4" />
-              Ver Mais ({filteredProducts.length - productsToShow} restantes)
+              Ver Mais
             </Button>
           )}
           {canShowLess && (

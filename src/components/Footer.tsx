@@ -57,7 +57,7 @@ export function Footer() {
             <img
               src={delicattaLogo}
               alt={STORE_NAME}
-              className="mb-4 h-16 w-16 rounded-lg object-cover"
+              className="mb-4 h-16 w-16 rounded-full object-cover"
             />
             <p className="mb-6 text-sm leading-relaxed text-primary-foreground/70">
               {STORE_DESCRIPTION}
