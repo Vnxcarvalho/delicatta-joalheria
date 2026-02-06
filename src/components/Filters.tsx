@@ -61,7 +61,7 @@ export function Filters({
                     id={`material-${material}`}
                     checked={selectedMaterials.includes(material)}
                     onCheckedChange={() => onMaterialChange(material)}
-                    className="border-accent data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground"
+                    className="bg-white border-destructive text-destructive hover:bg-red-50 hover:text-destructive"
                   />
                   <Label
                     htmlFor={`material-${material}`}
