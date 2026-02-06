@@ -30,15 +30,15 @@ import { useToast } from "@/hooks/use-toast";
 // INFORMAÇÕES DE CONTATO - Edite aqui com seus dados
 // ─────────────────────────────────────────────────────────────────────────────
 
-const PHONE_NUMBER = "(11) 99999-9999";
-const WHATSAPP_NUMBER = "5511999999999";
-const EMAIL = "contato@delicatta.com.br";
-const STORE_ADDRESS = "Rua das Joias, 123 - Centro";
-const STORE_CITY = "São Paulo - SP";
+const PHONE_NUMBER = "(96) 98106-1276";
+const WHATSAPP_NUMBER = "(96) 98106-1276";
+const EMAIL = "delicatajoiasamapa1@gmail.com";
+const STORE_ADDRESS = "Rua Salvador Diniz, 471 - Centro";
+const STORE_CITY = "Santana - AP";
 const STORE_HOURS = "Seg a Sáb: 9h às 18h";
 
 // Links das redes sociais
-const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Delicatta e gostaria de saber mais sobre as joias.";
+const WHATSAPP_MESSAGE = "Olá! 👋 tudo bem? Tenho interesse em conhecer as peças da joalheria.";
 const INSTAGRAM_USERNAME = "delicattajoalheria";
 const FACEBOOK_USERNAME = "delicattajoalheria";
 
@@ -135,7 +135,7 @@ export function Contact() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="(11) 99999-9999"
+                  placeholder="(96) 99999-9999"
                   className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
                 />
               </div>

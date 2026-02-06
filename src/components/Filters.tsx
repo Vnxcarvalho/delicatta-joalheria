@@ -19,10 +19,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Material, JewelryType, materialLabels, typeLabels } from "@/data/products";
 import { X } from "lucide-react";
-
-// ─────────────────────────────────────────────────────────────────────────────
-// TIPOS DAS PROPS
-// ─────────────────────────────────────────────────────────────────────────────
 interface FiltersProps {
   selectedMaterials: Material[];
   selectedTypes: JewelryType[];
@@ -30,10 +26,6 @@ interface FiltersProps {
   onTypeChange: (type: JewelryType) => void;
   onClearFilters: () => void;
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// LISTAS DE FILTROS
-// ─────────────────────────────────────────────────────────────────────────────
 const materials: Material[] = ["ouro", "prata", "aco"];
 const types: JewelryType[] = [
   "brinco",
@@ -59,9 +51,6 @@ export function Filters({
   return (
     <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="flex flex-col gap-6">
-        {/* ─────────────────────────────────────────────────────────────────
-         * LINHA SUPERIOR: MATERIAL + CONTADOR
-         * ───────────────────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h3 className="mb-3 font-semibold text-foreground">Material</h3>

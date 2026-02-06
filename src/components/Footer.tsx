@@ -2,17 +2,17 @@
  * ═══════════════════════════════════════════════════════════════════════════════
  * DELICATTA JOALHERIA - Footer (Rodapé)
  * ═══════════════════════════════════════════════════════════════════════════════
- * 
+ *
  * Este componente exibe o rodapé completo com:
  * - Logo e descrição da loja
  * - Links de navegação
  * - Categorias de produtos
  * - Informações de contato
  * - Redes sociais
- * 
+ *
  * COMO EDITAR:
  * - Altere as constantes abaixo para personalizar
- * 
+ *
  * ═══════════════════════════════════════════════════════════════════════════════
  */
 
@@ -23,14 +23,14 @@ import delicattaLogo from "@/assets/delicatta-logo.jpeg";
 // CONFIGURAÇÕES - Edite aqui para personalizar
 // ─────────────────────────────────────────────────────────────────────────────
 const STORE_NAME = "Delicatta Joalheria";
-const STORE_DESCRIPTION = "Elegância que marca momentos. Há mais de 10 anos oferecendo as melhores joias com qualidade e elegância.";
+const STORE_DESCRIPTION = "";
 const CURRENT_YEAR = new Date().getFullYear();
 
 // Contato
-const PHONE_NUMBER = "(11) 99999-9999";
-const EMAIL = "contato@delicatta.com.br";
-const ADDRESS = "Rua das Joias, 123 - Centro";
-const CITY = "São Paulo - SP";
+const PHONE_NUMBER = "(96) 98106-1276";
+const EMAIL = "delicatajoiasamapa1@gmail.com";
+const ADDRESS = "Rua Salvador Diniz, 471 - Centro";
+const CITY = "Santana - AP";
 const HOURS = "Seg a Sáb: 9h às 18h";
 
 // Redes sociais
@@ -57,8 +57,7 @@ export function Footer() {
             <img
               src={delicattaLogo}
               alt={STORE_NAME}
-              className="mb-4 h-16 w-16 rounded-full object-cover"
-            />
+              className="mb-5 h-20 w-20 rounded-full object-cover ml-8" />
             <p className="mb-6 text-sm leading-relaxed text-primary-foreground/70">
               {STORE_DESCRIPTION}
             </p>

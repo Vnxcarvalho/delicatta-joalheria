@@ -21,19 +21,23 @@ function getProductImage(product: Product): string {
 export function ProductGrid() {
   const [selectedMaterials, setSelectedMaterials] = useState<Material[]>([]);
   const [selectedTypes, setSelectedTypes] = useState<JewelryType[]>([]);
-  const [productsToShow, setProductsToShow] = useState(INITIAL_PRODUCTS_TO_SHOW);
+  const [productsToShow, setProductsToShow] = useState(
+    INITIAL_PRODUCTS_TO_SHOW,
+  );
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const handleMaterialChange = (material: Material) => {
     setSelectedMaterials((prev) =>
-      prev.includes(material) ? prev.filter((m) => m !== material) : [...prev, material]
+      prev.includes(material)
+        ? prev.filter((m) => m !== material)
+        : [...prev, material],
     );
     setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
   };
 
   const handleTypeChange = (type: JewelryType) => {
     setSelectedTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type],
     );
     setProductsToShow(INITIAL_PRODUCTS_TO_SHOW);
   };
@@ -47,7 +51,8 @@ export function ProductGrid() {
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesMaterial =
-        selectedMaterials.length === 0 || selectedMaterials.includes(product.material);
+        selectedMaterials.length === 0 ||
+        selectedMaterials.includes(product.material);
       const matchesType =
         selectedTypes.length === 0 || selectedTypes.includes(product.type);
       return matchesMaterial && matchesType;
@@ -59,7 +64,9 @@ export function ProductGrid() {
   const canShowLess = productsToShow > INITIAL_PRODUCTS_TO_SHOW;
 
   const handleShowMore = () => {
-    setProductsToShow((prev) => Math.min(prev + PRODUCTS_PER_LOAD, filteredProducts.length));
+    setProductsToShow((prev) =>
+      Math.min(prev + PRODUCTS_PER_LOAD, filteredProducts.length),
+    );
   };
 
   const handleShowLess = () => {
@@ -98,7 +105,12 @@ export function ProductGrid() {
               <ProductCard
                 key={product.id}
                 product={{ ...product, image: getProductImage(product) }}
-                onClick={() => setSelectedProduct({ ...product, image: getProductImage(product) })}
+                onClick={() =>
+                  setSelectedProduct({
+                    ...product,
+                    image: getProductImage(product),
+                  })
+                }
               />
             ))}
           </div>
@@ -111,13 +123,13 @@ export function ProductGrid() {
         )}
 
         {/* Botões Ver Mais / Ver Menos */}
-        <div className="mt-10 flex justify-center gap-4">
+        <div className="mt-10 flex justify-center gap-4 text-white">
           {canShowMore && (
             <Button
               onClick={handleShowMore}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="border-primary !text-white hover:bg-primary hover:!text-white"
             >
-              <ChevronDown className="mr-2 h-4 w-4" />
+              <ChevronDown className="mr-2 h-4 w-4 !text-white" />
               Ver Mais
             </Button>
           )}
@@ -125,9 +137,9 @@ export function ProductGrid() {
             <Button
               variant="outline"
               onClick={handleShowLess}
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              className="border-primary !text-white hover:bg-primary hover:!text-white"
             >
-              <ChevronUp className="mr-2 h-4 w-4" />
+              <ChevronUp className="mr-2 h-4 w-4 text-white" />
               Ver Menos
             </Button>
           )}
