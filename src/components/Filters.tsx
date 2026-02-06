@@ -80,7 +80,7 @@ export function Filters({
                 variant="outline"
                 size="sm"
                 onClick={onClearFilters}
-                className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                className="bg-white border-destructive text-destructive hover:bg-red-50 hover:text-destructive"
               >
                 <X className="mr-1 h-4 w-4" />
                 Limpar Filtros
