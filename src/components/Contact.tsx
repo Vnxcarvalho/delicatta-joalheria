@@ -223,7 +223,7 @@ export function Contact() {
             <div className="mt-8 grid grid-cols-3 gap-3">
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Button className="w-full bg-[hsl(142,70%,35%)] text-primary-foreground hover:bg-[hsl(142,70%,30%)]">
-                  <WhatsAppIcon className="mr-0.5 h-4 w-4" />
+                  <WhatsAppIcon className="mr-[-3px] h-4 w-4" />
                   WhatsApp
                 </Button>
               </a>
@@ -232,13 +232,13 @@ export function Contact() {
                   variant="outline"
                   className="w-full border-accent/30 bg-transparent text-primary-foreground hover:bg-accent/10"
                 >
-                  <Instagram className="mr-0.5 h-4 w-4" />
+                  <Instagram className="mr-[-4px] h-4 w-4" />
                   Instagram
                 </Button>
               </a>
               <a href={facebookLink} target="_blank" rel="noopener noreferrer">
                 <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                  <Facebook className="mr-0.5 h-4 w-4" />
+                  <Facebook className="mr-[-5px] h-4 w-4" />
                   Facebook
                 </Button>
               </a>
