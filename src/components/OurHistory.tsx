@@ -47,7 +47,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Garantia Vitalícia",
-    description: "Manutenção gratuita em todas as peças",
+    description: "Manutenção gratuita em ouro e prata",
   },
   {
     icon: Heart,
