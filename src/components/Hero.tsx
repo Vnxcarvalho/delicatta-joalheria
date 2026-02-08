@@ -6,7 +6,7 @@ const BUTTON_TEXT = "Ver Coleção";
 
 export function Hero() {
   return (
-    <section className="relative h-[80vh] min-h-[500px] overflow-hidden">
+    <section className="relative h-[90vh] min-h-[500px] overflow-hidden">
       <img
         src={heroImage}
         alt="Coleção de joias Delicatta"

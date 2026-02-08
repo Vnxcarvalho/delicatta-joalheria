@@ -24,7 +24,7 @@ export function Header() {
             <img
               src={logo}
               alt="Delicatta Joalheria"
-              className="h-16 w-auto rounded-full object-cover md:h-16"
+              className="h-16] w-auto rounded-full object-cover md:h-16"
             />
           </a>
 
