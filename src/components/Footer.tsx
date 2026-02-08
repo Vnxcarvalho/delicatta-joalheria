@@ -17,6 +17,7 @@
  */
 
 import { Instagram, Facebook, MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import delicattaLogo from "@/assets/delicatta-logo.jpeg";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -57,13 +58,25 @@ export function Footer() {
             <img
               src={delicattaLogo}
               alt={STORE_NAME}
-              className="mb-5 h-16 w-16 rounded-full object-cover ml-10" />
+              className="mb-5 h-16 w-16 rounded-full object-cover ml-10"
+            />
             <p className="mb-6 text-sm leading-relaxed text-primary-foreground/70">
               {STORE_DESCRIPTION}
             </p>
             <div className="flex gap-3">
+
               <a
-                href={instagramLink}
+                href={"https://wa.link/mr3lkl"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-primary-foreground/70 transition-colors hover:border-accent hover:text-accent"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={
+                  "https://www.instagram.com/delicatta_joiasap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-primary-foreground/70 transition-colors hover:border-accent hover:text-accent"
@@ -78,14 +91,7 @@ export function Footer() {
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-primary-foreground/70 transition-colors hover:border-accent hover:text-accent"
-              >
-                <MessageCircle className="h-5 w-5" />
-              </a>
+              
             </div>
           </div>
 
