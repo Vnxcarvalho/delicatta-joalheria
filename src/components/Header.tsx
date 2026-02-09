@@ -28,7 +28,6 @@ export function Header() {
             />
           </a>
 
-          {/* Menu Desktop */}
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-8">
               {menuItems.map((item) => (
@@ -44,7 +43,6 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* Botão Menu Mobile */}
           <button
             className="text-primary-foreground md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
