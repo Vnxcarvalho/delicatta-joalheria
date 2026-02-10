@@ -70,7 +70,14 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
               className="bg-accent text-accent-foreground hover:bg-accent/90"
               disabled={!product.available}
             >
-              {product.available ? "Consultar" : "Indisponível"}
+              {product.available ? "" : "Indisponível"}
+              <a
+              href={"https://wa.link/mr3lkl"}
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                Consultar
+              </a>
             </Button>
           </div>
         </div>
