@@ -63,7 +63,7 @@ export const products: Product[] = [
   { id: 12, name: "Brinco Sofisticado", price: 39.90, image: productImages["açobrinco12"], material: "aco", type: "argola", available: true },
 
   // ─── ALIANÇAS ───
-  { id: 13, name: "Par de Alianças Delicatta", price: 299.90, image: productImages["açoparalianças"], material: "aco", type: "alianca", available: true },
+  { id: 13, name: "Par de Alianças Delicatta", price: 9999.90, image: productImages["açoparalianças"], material: "aco", type: "alianca", available: true },
   { id: 14, name: "Par de Alianças Cruz", price: 349.90, image: productImages["açoparaliançascruz"], material: "aco", type: "alianca", available: true },
   { id: 15, name: "Par de Alianças Finas", price: 199.90, image: productImages["açoparaliançasfinochato"], material: "aco", type: "alianca", available: true },
   { id: 16, name: "Par de Alianças Batidas", price: 189.90, image: productImages["paracçobatida"], material: "aco", type: "alianca", available: true },
