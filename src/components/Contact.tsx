@@ -48,7 +48,7 @@ export function Contact() {
   });
 
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const instagramLink = `https://instagram.com/${INSTAGRAM_USERNAME}`;
+  const instagramLink = `https://www.instagram.com/delicatta_joalheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}`;
   const facebookLink = `https://facebook.com/${FACEBOOK_USERNAME}`;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -240,7 +240,7 @@ export function Contact() {
               </a>
               <a
                 href={
-                  "https://www.instagram.com/delicatta_joiasap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  "https://www.instagram.com/delicatta_joalheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 }
                 target="_blank"
                 rel="noopener noreferrer"

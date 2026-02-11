@@ -75,7 +75,7 @@ export function Footer() {
               </a>
               <a
                 href={
-                  "https://www.instagram.com/delicatta_joiasap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  "https://www.instagram.com/delicatta_joalheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 }
                 target="_blank"
                 rel="noopener noreferrer"
