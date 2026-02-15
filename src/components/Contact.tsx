@@ -1,25 +1,6 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Seção de Contato
- * ═══════════════════════════════════════════════════════════════════════════════
- *
- * Este componente exibe o formulário de contato e informações da loja.
- *
- * COMO EDITAR:
- * - Altere as constantes abaixo com suas informações
- * - Substitua os links do WhatsApp, Instagram e Facebook
- *
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
-
-import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // INFORMAÇÕES DE CONTATO - Edite aqui com seus dados
@@ -33,39 +14,10 @@ const STORE_CITY = "Santana - AP";
 const STORE_HOURS = "Seg a Sáb: 9h às 18h";
 
 // Links das redes sociais
-const WHATSAPP_MESSAGE =
-  "Olá! 👋 tudo bem? Tenho interesse em conhecer as peças da joalheria.";
-const INSTAGRAM_USERNAME = "delicattajoalheria";
 const FACEBOOK_USERNAME = "delicattajoalheria";
 
 export function Contact() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const instagramLink = `https://www.instagram.com/delicatta_joalheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}`;
   const facebookLink = `https://facebook.com/${FACEBOOK_USERNAME}`;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aqui você pode adicionar a lógica de envio do formulário
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <section id="contato" className="bg-primary py-16">
@@ -87,83 +39,9 @@ export function Contact() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────────
-         * GRID COM FORMULÁRIO E INFORMAÇÕES
+         * INFORMAÇÕES DE CONTATO
          * ───────────────────────────────────────────────────────────────── */}
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
-          {/* ─────────────────────────────────────────────────────────────────
-           * FORMULÁRIO DE CONTATO
-           * ───────────────────────────────────────────────────────────────── */}
-          <div className="rounded-lg border border-accent/30 bg-primary p-8">
-            <h3 className="mb-6 text-xl font-semibold text-primary-foreground">
-              Envie sua mensagem
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="mb-2 block text-sm text-primary-foreground">
-                  Nome completo
-                </label>
-                <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Seu nome"
-                  required
-                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-sm text-primary-foreground">
-                  E-mail
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="seu@email.com"
-                  required
-                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-sm text-primary-foreground">
-                  Telefone
-                </label>
-                <Input
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="(96) 99999-9999"
-                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-sm text-primary-foreground">
-                  Mensagem
-                </label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Como podemos ajudá-lo?"
-                  required
-                  rows={5}
-                  className="border-accent/30 bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40"
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                Enviar mensagem
-              </Button>
-            </form>
-          </div>
-
-          {/* ─────────────────────────────────────────────────────────────────
-           * INFORMAÇÕES DE CONTATO
-           * ───────────────────────────────────────────────────────────────── */}
+        <div className="mx-auto max-w-2xl">
           <div className="rounded-lg border border-accent/30 bg-primary p-8">
             <h3 className="mb-8 text-xl font-semibold text-primary-foreground">
               Informações de Contato
@@ -227,7 +105,7 @@ export function Contact() {
             {/* ─────────────────────────────────────────────────────────────────
              * BOTÕES DE REDES SOCIAIS
              * ───────────────────────────────────────────────────────────────── */}
-            <div className="mt-8 grid grid-cols-3 gap-3">
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <a
                 href={"https://wa.link/mr3lkl"}
                 target="_blank"
