@@ -57,7 +57,7 @@ const benefits = [
   {
     icon: Truck,
     title: "Entrega Segura",
-    description: "Frete grátis para todo Brasil",
+    description: "Entregamos para todo Brasil",
   },
 ];
 
