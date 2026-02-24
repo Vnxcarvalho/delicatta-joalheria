@@ -4,7 +4,7 @@ import logo from "@/assets/delicatta-logo.jpeg";
 
 const menuItems = [
   { label: "Produtos", href: "#produtos" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Sobre", href: "#nossa-historia" },
   { label: "Contato", href: "#contato" },
 ];
 

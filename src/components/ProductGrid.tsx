@@ -75,7 +75,7 @@ export function ProductGrid() {
   };
 
   return (
-    <section id="produtos" className="bg-background py-16">
+    <section id="produtos" className="bg-background pt-6 pb-8 md:py-16">
       <div className="container mx-auto px-4">
         {/* Título */}
         <div className="mb-8 text-center">

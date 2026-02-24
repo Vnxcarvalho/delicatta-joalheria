@@ -22,9 +22,9 @@ import { Award, Shield, Heart, Truck } from "lucide-react";
 // ─────────────────────────────────────────────────────────────────────────────
 const SECTION_LABEL = "NOSSA HISTÓRIA";
 const SECTION_TITLE = "Tradição e elegância em cada detalhe";
-const SECTION_TEXT_1 ="A Delicatta nasce da união entre tradição joalheira e olhar contemporâneo. Cada peça é cuidadosamente fabricada com atenção absoluta aos detalhes, desde o desenho inicial até o acabamento final. O processo valoriza a precisão, a harmonia das formas e o brilho perfeito do metal, garantindo joias que não apenas encantam, mas permanecem.";
-const SECTION_TEXT_2 =
-  "";
+const SECTION_TEXT_1 =
+  "A Delicatta nasce da união entre tradição joalheira e olhar contemporâneo. Cada peça é cuidadosamente fabricada com atenção absoluta aos detalhes, desde o desenho inicial até o acabamento final. O processo valoriza a precisão, a harmonia das formas e o brilho perfeito do metal, garantindo joias que não apenas encantam, mas permanecem.";
+const SECTION_TEXT_2 = "";
 
 // Anos de tradição (aparece no badge da imagem)
 const YEARS_OF_TRADITION = "10+";
@@ -63,7 +63,7 @@ const benefits = [
 
 export function OurHistory() {
   return (
-    <section id="nossa-historia" className="bg-primary py-16 md:py-24">
+    <section id="nossa-historia" className="bg-primary pt-16 pb-6 md:py-24">
       <div className="container mx-auto px-4">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* ─────────────────────────────────────────────────────────────────
@@ -75,7 +75,7 @@ export function OurHistory() {
               <img
                 src={"anelouropedra.jpeg"}
                 alt="Joias Delicatta"
-                className="h-[600px] w-[700px] object-cover object-[center_80%]"
+                className="h-[350px] w-full md:h-[600px] md:w-[700px] object-cover object-[center_80%]"
               />
             </div>
 
