@@ -1,19 +1,3 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Componente de Filtros
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este componente exibe os filtros para os produtos:
- * - Filtros por material (Ouro, Prata, Aço)
- * - Filtros por tipo (9 categorias de joias)
- * - Botão para limpar filtros
- * - Contador de produtos exibidos
- * 
- * Os filtros podem ser combinados (ex: Ouro + Brincos)
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
