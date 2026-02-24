@@ -1,19 +1,3 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Seção Sobre
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este componente exibe informações sobre a joalheria.
- * 
- * COMO EDITAR:
- * - Modifique as constantes abaixo para alterar os textos
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
-// ─────────────────────────────────────────────────────────────────────────────
-// TEXTOS DA SEÇÃO - Edite aqui para personalizar
-// ─────────────────────────────────────────────────────────────────────────────
 const ABOUT_TITLE = "Sobre a Delicatta";
 const ABOUT_TEXT_1 = "A Delicatta nasceu do amor pela arte de criar joias únicas e especiais. Cada peça é cuidadosamente selecionada para oferecer o melhor em qualidade, design e elegância.";
 const ABOUT_TEXT_2 = "Nossa missão é proporcionar momentos especiais através de joias que contam histórias e celebram os momentos mais importantes da sua vida.";
