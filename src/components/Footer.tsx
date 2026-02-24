@@ -31,7 +31,7 @@ export function Footer() {
       {/* ─────────────────────────────────────────────────────────────────
        * GRID PRINCIPAL
        * ───────────────────────────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 py-6 md:py-12">
+      <div className="container mx-auto px-4 py-6 md:py-10">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* ─────────────────────────────────────────────────────────────────
            * COLUNA 1: LOGO E DESCRIÇÃO
