@@ -63,7 +63,10 @@ const benefits = [
 
 export function OurHistory() {
   return (
-    <section id="nossa-historia" className="bg-primary pt-16 pb-6 md:py-24">
+    <section
+      id="nossa-historia"
+      className="bg-primary pt-10 pb-6 md:pt-16 md:pb-10"
+    >
       <div className="container mx-auto px-4">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* ─────────────────────────────────────────────────────────────────

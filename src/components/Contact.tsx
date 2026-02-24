@@ -20,7 +20,7 @@ export function Contact() {
   const facebookLink = `https://facebook.com/${FACEBOOK_USERNAME}`;
 
   return (
-    <section id="contato" className="bg-primary pt-6 pb-10 md:py-16">
+    <section id="contato" className="bg-primary pt-6 pb-10 md:pt-10 md:pb-12">
       <div className="container mx-auto px-4">
         {/* ─────────────────────────────────────────────────────────────────
          * TÍTULO
