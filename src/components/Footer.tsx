@@ -1,21 +1,3 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Footer (Rodapé)
- * ═══════════════════════════════════════════════════════════════════════════════
- *
- * Este componente exibe o rodapé completo com:
- * - Logo e descrição da loja
- * - Links de navegação
- * - Categorias de produtos
- * - Informações de contato
- * - Redes sociais
- *
- * COMO EDITAR:
- * - Altere as constantes abaixo para personalizar
- *
- * ═══════════════════════════════════════════════════════════════════════════════
- */
-
 import { Instagram, Facebook, MessageCircle } from "lucide-react";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import delicattaLogo from "@/assets/delicatta-logo.jpeg";
@@ -49,22 +31,21 @@ export function Footer() {
       {/* ─────────────────────────────────────────────────────────────────
        * GRID PRINCIPAL
        * ───────────────────────────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-6 md:py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* ─────────────────────────────────────────────────────────────────
            * COLUNA 1: LOGO E DESCRIÇÃO
            * ───────────────────────────────────────────────────────────────── */}
-          <div>
+          <div className="order-last flex flex-col items-center text-center lg:order-none lg:items-start lg:text-left">
             <img
               src={delicattaLogo}
               alt={STORE_NAME}
-              className="mb-5 h-16 w-16 rounded-full object-cover ml-10"
+              className="mb-5 h-16 w-16 rounded-full object-cover mx-auto lg:ml-10 lg:mx-0"
             />
             <p className="mb-6 text-sm leading-relaxed text-primary-foreground/70">
               {STORE_DESCRIPTION}
             </p>
-            <div className="flex gap-3">
-
+            <div className="flex justify-center gap-3 lg:justify-start">
               <a
                 href={"https://wa.link/mr3lkl"}
                 target="_blank"
@@ -84,14 +65,13 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href={facebookLink}
+                href={"https://www.facebook.com/profile.php?id=61581978691855"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-primary-foreground/70 transition-colors hover:border-accent hover:text-accent"
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              
             </div>
           </div>
 
@@ -108,7 +88,7 @@ export function Footer() {
                 Início
               </a>
               <a
-                href="#sobre"
+                href="#nossa-historia"
                 className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
               >
                 Sobre

@@ -20,7 +20,7 @@ export function Contact() {
   const facebookLink = `https://facebook.com/${FACEBOOK_USERNAME}`;
 
   return (
-    <section id="contato" className="bg-primary py-16">
+    <section id="contato" className="bg-primary pt-6 pb-10 md:py-16">
       <div className="container mx-auto px-4">
         {/* ─────────────────────────────────────────────────────────────────
          * TÍTULO
@@ -131,7 +131,11 @@ export function Contact() {
                   Instagram
                 </Button>
               </a>
-              <a href={facebookLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.facebook.com/profile.php?id=61581978691855"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">
                   <Facebook className="mr-[-5px] h-4 w-4" />
                   Facebook
