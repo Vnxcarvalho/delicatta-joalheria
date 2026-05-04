@@ -10,7 +10,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const INITIAL_PRODUCTS_TO_SHOW = 12;
 const PRODUCTS_PER_LOAD = 12;
 
-// Enrich products with category images where they use placeholder
+
 function getProductImage(product: Product): string {
   if (product.image === "/placeholder.svg") {
     return categoryImages[product.type] || product.image;
@@ -80,7 +80,7 @@ export function ProductGrid() {
       className="bg-background pt-6 pb-8 md:pt-10 md:pb-10"
     >
       <div className="container mx-auto px-4">
-        {/* Título */}
+        
         <div className="mb-8 text-center">
           <h2 className="mb-2 font-serif text-3xl font-bold text-foreground md:text-4xl">
             Nossa <span className="text-accent">Coleção</span>
@@ -90,7 +90,7 @@ export function ProductGrid() {
           </p>
         </div>
 
-        {/* Filtros */}
+        
         <div className="mb-8">
           <Filters
             selectedMaterials={selectedMaterials}
@@ -101,7 +101,7 @@ export function ProductGrid() {
           />
         </div>
 
-        {/* Grade de Produtos */}
+        
         {visibleProducts.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
             {visibleProducts.map((product) => (
@@ -125,7 +125,7 @@ export function ProductGrid() {
           </div>
         )}
 
-        {/* Botões Ver Mais / Ver Menos */}
+        
         <div className="mt-10 flex justify-center gap-4 text-white">
           {canShowMore && (
             <Button
@@ -149,7 +149,7 @@ export function ProductGrid() {
         </div>
       </div>
 
-      {/* Modal do Produto */}
+      
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}

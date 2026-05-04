@@ -2,96 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Sistema de Cores
- * ═══════════════════════════════════════════════════════════════════════════════
- * 
- * Este arquivo define as cores do tema da loja.
- * Para alterar as cores principais, modifique os valores HSL abaixo.
- * 
- * Cores principais:
- * - Verde escuro: usado no fundo do header, footer e destaques
- * - Dourado: usado em detalhes, bordas e elementos de destaque
- * - Creme: usado como fundo claro para os cards de produtos
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- */
+
 
 @layer base {
   :root {
-    /* ============================================
-     * CORES DE FUNDO E TEXTO
-     * ============================================ */
     
-    /* Fundo principal (verde minimalista e moderno) */
+    
+    
     --background: 150 40% 20%;
     
-    /* Texto principal (verde escuro) */
+    
     --foreground: 150 40% 15%;
 
-    /* ============================================
-     * CORES DOS CARDS
-     * ============================================ */
     
-    /* Fundo dos cards de produto (branco com leve tom verde) */
+    
+    
     --card: 150 10% 99%;
     --card-foreground: 150 40% 15%;
 
-    /* ============================================
-     * POPOVERS E MENUS
-     * ============================================ */
+    
     --popover: 0 0% 100%;
     --popover-foreground: 150 40% 15%;
 
-    /* ============================================
-     * COR PRIMÁRIA (VERDE ESCURO)
-     * Use esta cor para: header, footer, botões principais
-     * ============================================ */
+    
     --primary: 150 40% 20%;
     --primary-foreground: 45 50% 90%;
 
-    /* ============================================
-     * COR SECUNDÁRIA (VERDE CLARO)
-     * Use esta cor para: fundos de seções, badges
-     * ============================================ */
+    
     --secondary: 150 20% 92%;
     --secondary-foreground: 150 40% 15%;
 
-    /* ============================================
-     * CORES NEUTRAS
-     * ============================================ */
+    
     --muted: 150 10% 90%;
     --muted-foreground: 150 20% 40%;
 
-    /* ============================================
-     * COR DE DESTAQUE (DOURADO)
-     * Use esta cor para: bordas, ícones, preços, destaques
-     * ============================================ */
+    
     --accent: 45 80% 50%;
     --accent-foreground: 150 40% 15%;
 
-    /* ============================================
-     * COR DE ALERTA/ESGOTADO
-     * ============================================ */
+    
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    /* ============================================
-     * BORDAS E INPUTS
-     * ============================================ */
+    
     --border: 150 15% 85%;
     --input: 150 15% 85%;
     --ring: 45 80% 50%;
 
-    /* ============================================
-     * RAIO DAS BORDAS
-     * ============================================ */
+    
     --radius: 0.5rem;
 
-    /* ============================================
-     * SIDEBAR (não usado neste projeto)
-     * ============================================ */
+    
     --sidebar-background: 150 40% 20%;
     --sidebar-foreground: 45 50% 90%;
     --sidebar-primary: 45 80% 50%;
@@ -101,9 +62,7 @@
     --sidebar-border: 150 30% 30%;
     --sidebar-ring: 45 80% 50%;
 
-    /* ============================================
-     * CORES CUSTOMIZADAS DELICATTA
-     * ============================================ */
+    
     --gold: 45 80% 50%;
     --gold-light: 45 60% 70%;
     --gold-dark: 45 80% 40%;
@@ -112,9 +71,7 @@
     --cream: 150 15% 95%;
   }
 
-  /* ============================================
-   * MODO ESCURO (opcional)
-   * ============================================ */
+  
   .dark {
     --background: 150 40% 10%;
     --foreground: 45 30% 95%;
@@ -156,31 +113,29 @@
   }
 }
 
-/* ============================================
- * ESTILOS CUSTOMIZADOS
- * ============================================ */
 
-/* Estilo para scroll suave entre seções */
+
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Estilo para o gradiente dourado */
+
 .gradient-gold {
   background: linear-gradient(135deg, hsl(45 80% 50%) 0%, hsl(45 80% 40%) 100%);
 }
 
-/* Estilo para borda dourada */
+
 .border-gold {
   border-color: hsl(45 80% 50%);
 }
 
-/* Estilo para texto dourado */
+
 .text-gold {
   color: hsl(45 80% 50%);
 }
 
-/* Hover com brilho dourado */
+
 .hover-gold-glow:hover {
   box-shadow: 0 0 20px hsl(45 80% 50% / 0.3);
 }

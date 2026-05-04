@@ -2,9 +2,9 @@ import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// INFORMAÇÕES DE CONTATO - Edite aqui com seus dados
-// ─────────────────────────────────────────────────────────────────────────────
+
+
+
 
 const PHONE_NUMBER = "(96) 98106-1276";
 const WHATSAPP_NUMBER = "(96) 98106-1276";
@@ -13,7 +13,7 @@ const STORE_ADDRESS = "Rua Salvador Diniz, 471 - Centro";
 const STORE_CITY = "Santana - AP";
 const STORE_HOURS = "Seg a Sáb: 9h às 18h";
 
-// Links das redes sociais
+
 const FACEBOOK_USERNAME = "delicattajoalheria";
 
 export function Contact() {
@@ -22,9 +22,7 @@ export function Contact() {
   return (
     <section id="contato" className="bg-primary pt-6 pb-10 md:pt-10 md:pb-12">
       <div className="container mx-auto px-4">
-        {/* ─────────────────────────────────────────────────────────────────
-         * TÍTULO
-         * ───────────────────────────────────────────────────────────────── */}
+        
         <div className="mb-12 text-center">
           <span className="mb-2 block text-sm font-semibold uppercase tracking-widest text-accent">
             Fale Conosco
@@ -38,9 +36,7 @@ export function Contact() {
           </p>
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * INFORMAÇÕES DE CONTATO
-         * ───────────────────────────────────────────────────────────────── */}
+        
         <div className="mx-auto max-w-2xl">
           <div className="rounded-lg border border-accent/30 bg-primary p-8">
             <h3 className="mb-8 text-xl font-semibold text-primary-foreground">
@@ -48,7 +44,7 @@ export function Contact() {
             </h3>
 
             <div className="space-y-6">
-              {/* Telefone */}
+              
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
                   <Phone className="h-5 w-5 text-accent" />
@@ -61,7 +57,7 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* E-mail */}
+              
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
                   <Mail className="h-5 w-5 text-accent" />
@@ -74,7 +70,7 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* Endereço */}
+              
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
                   <MapPin className="h-5 w-5 text-accent" />
@@ -88,7 +84,7 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* Horário */}
+              
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
                   <Clock className="h-5 w-5 text-accent" />
@@ -102,9 +98,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* ─────────────────────────────────────────────────────────────────
-             * BOTÕES DE REDES SOCIAIS
-             * ───────────────────────────────────────────────────────────────── */}
+            
             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <a
                 href={"https://wa.link/mr3lkl"}

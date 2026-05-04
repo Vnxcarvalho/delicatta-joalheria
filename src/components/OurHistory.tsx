@@ -1,43 +1,28 @@
-/*
- * ═══════════════════════════════════════════════════════════════════════════════
- * DELICATTA JOALHERIA - Seção Nossa História
- * ═══════════════════════════════════════════════════════════════════════════════
- *
- * Esta seção exibe a história da joalheria com:
- * - Imagem de destaque com badge de anos de tradição
- * - Texto sobre a empresa
- * - 4 cards de benefícios
- *
- * COMO EDITAR:
- * - Modifique as constantes abaixo para alterar os textos
- * - Troque a imagem substituindo HISTORY_IMAGE
- *
- * ═══════════════════════════════════════════════════════════════════════════════
- */
+
 
 import { Award, Shield, Heart, Truck } from "lucide-react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// TEXTOS DA SEÇÃO - Edite aqui para personalizar
-// ─────────────────────────────────────────────────────────────────────────────
+
+
+
 const SECTION_LABEL = "NOSSA HISTÓRIA";
 const SECTION_TITLE = "Tradição e elegância em cada detalhe";
 const SECTION_TEXT_1 =
   "A Delicatta nasce da união entre tradição joalheira e olhar contemporâneo. Cada peça é cuidadosamente fabricada com atenção absoluta aos detalhes, desde o desenho inicial até o acabamento final. O processo valoriza a precisão, a harmonia das formas e o brilho perfeito do metal, garantindo joias que não apenas encantam, mas permanecem.";
 const SECTION_TEXT_2 = "";
 
-// Anos de tradição (aparece no badge da imagem)
+
 const YEARS_OF_TRADITION = "10+";
 const YEARS_LABEL = "Anos de tradição";
 
-// Imagem da seção (substitua pelo caminho da sua imagem)
-// Opção 1: Coloque a imagem em public/images/ e use "/images/sua-imagem.jpg"
-// Opção 2: Importe de src/assets e use a variável importada
+
+
+
 const HISTORY_IMAGE = "src/public/anelouropedra.jpeg";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// BENEFÍCIOS/DIFERENCIAIS - Edite aqui para personalizar os 4 cards
-// ─────────────────────────────────────────────────────────────────────────────
+
+
+
 const benefits = [
   {
     icon: Award,
@@ -69,10 +54,7 @@ export function OurHistory() {
     >
       <div className="container mx-auto px-4">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* ─────────────────────────────────────────────────────────────────
-           * IMAGEM COM BADGE
-           * Para trocar a imagem, altere HISTORY_IMAGE acima
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div className="relative">
             <div className="overflow-hidden rounded-lg shadow-2xl">
               <img
@@ -82,7 +64,7 @@ export function OurHistory() {
               />
             </div>
 
-            {/* Badge de anos de tradição */}
+            
             <div className="absolute bottom-6 right-6 rounded bg-accent px-6 py-3 text-center shadow-lg">
               <span className="block text-3xl font-bold text-accent-foreground">
                 {YEARS_OF_TRADITION}
@@ -93,11 +75,9 @@ export function OurHistory() {
             </div>
           </div>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * CONTEÚDO DE TEXTO E BENEFÍCIOS
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div className="space-y-8">
-            {/* Label e título */}
+            
             <div>
               <span className="mb-2 block text-sm font-semibold uppercase tracking-wider text-accent">
                 {SECTION_LABEL}
@@ -107,16 +87,13 @@ export function OurHistory() {
               </h2>
             </div>
 
-            {/* Textos descritivos */}
+            
             <div className="space-y-4">
               <p className="text-primary-foreground/80">{SECTION_TEXT_1}</p>
               <p className="text-primary-foreground/80">{SECTION_TEXT_2}</p>
             </div>
 
-            {/* ─────────────────────────────────────────────────────────────────
-             * GRID DE BENEFÍCIOS (4 cards)
-             * Edite o array "benefits" acima para alterar
-             * ───────────────────────────────────────────────────────────────── */}
+            
             <div className="grid grid-cols-2 gap-4">
               {benefits.map((benefit, index) => (
                 <div

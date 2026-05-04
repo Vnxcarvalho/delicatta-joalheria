@@ -2,21 +2,21 @@ import { Instagram, Facebook, MessageCircle } from "lucide-react";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import delicattaLogo from "@/assets/delicatta-logo.jpeg";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CONFIGURAÇÕES - Edite aqui para personalizar
-// ─────────────────────────────────────────────────────────────────────────────
+
+
+
 const STORE_NAME = "Delicatta Joalheria";
 const STORE_DESCRIPTION = "";
 const CURRENT_YEAR = new Date().getFullYear();
 
-// Contato
+
 const PHONE_NUMBER = "(96) 98106-1276";
 const EMAIL = "delicatajoiasamapa1@gmail.com";
 const ADDRESS = "Rua Salvador Diniz, 471 - Centro";
 const CITY = "Santana - AP";
 const HOURS = "Seg a Sáb: 9h às 18h";
 
-// Redes sociais
+
 const WHATSAPP_NUMBER = "5511999999999";
 const INSTAGRAM_USERNAME = "delicattajoalheria";
 const FACEBOOK_USERNAME = "delicattajoalheria";
@@ -28,14 +28,10 @@ export function Footer() {
 
   return (
     <footer className="bg-primary">
-      {/* ─────────────────────────────────────────────────────────────────
-       * GRID PRINCIPAL
-       * ───────────────────────────────────────────────────────────────── */}
+      
       <div className="container mx-auto px-4 py-6 md:py-10">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* ─────────────────────────────────────────────────────────────────
-           * COLUNA 1: LOGO E DESCRIÇÃO
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div className="order-last flex flex-col items-center text-center lg:order-none lg:items-start lg:text-left">
             <img
               src={delicattaLogo}
@@ -75,9 +71,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * COLUNA 2: NAVEGAÇÃO
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div>
             <h3 className="mb-4 font-semibold text-accent">Navegação</h3>
             <nav className="flex flex-col gap-3">
@@ -108,9 +102,7 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * COLUNA 3: CATEGORIAS
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div>
             <h3 className="mb-4 font-semibold text-accent">Categorias</h3>
             <nav className="flex flex-col gap-3">
@@ -147,9 +139,7 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * COLUNA 4: CONTATO
-           * ───────────────────────────────────────────────────────────────── */}
+          
           <div>
             <h3 className="mb-4 font-semibold text-accent">Contato</h3>
             <div className="flex flex-col gap-3 text-sm text-primary-foreground/70">
@@ -163,9 +153,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ─────────────────────────────────────────────────────────────────
-       * COPYRIGHT
-       * ───────────────────────────────────────────────────────────────── */}
+      
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <p className="text-center text-sm text-primary-foreground/50">
