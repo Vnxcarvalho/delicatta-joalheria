@@ -3,7 +3,7 @@ const imageModules = import.meta.glob("@/assets/products/*.{jpeg,jpg,png,svg,web
   import: "default",
 });
 
-// Criar um mapeamento de nome de arquivo (sem extensão) para o caminho da imagem
+
 export const productImages: Record<string, string> = {};
 Object.entries(imageModules).forEach(([path, value]) => {
   const fileName = path.split("/").pop()?.split(".")[0] || "";
@@ -62,7 +62,7 @@ export const products: Product[] = [
   { id: 10, name: "Brinco Aço Delicado", price: 39.90, image: productImages["açobrinco10"], material: "aco", type: "brinco", available: true },
   { id: 11, name: "Brinco Sofisticado", price: 39.90, image: productImages["açobrinco12"], material: "aco", type: "argola", available: true },
 
-  // ─── ALIANÇAS ───
+  
   { id: 12, name: "Par de Alianças Delicatta", price: 76.00, image: productImages["açoparalianças"], material: "aco", type: "alianca", available: true },
   { id: 13, name: "Par de Alianças Cruz", price: 76.00, image: productImages["açoparaliançascruz"], material: "aco", type: "alianca", available: true },
   { id: 14, name: "Par de Alianças Finas", price: 76.00, image: productImages["açoparaliançasfinochato"], material: "aco", type: "alianca", available: true },
@@ -82,7 +82,7 @@ export const products: Product[] = [
   { id: 28, name: "Par de Alianças Tribal", price: 76.00, image: productImages["paraçotribal"], material: "aco", type: "alianca", available: true },
   { id: 29, name: "Par de Alianças com Solitária", price: 3920.00, image: productImages["paraliançaslisa2"], material: "ouro", type: "alianca", available: true },
 
-  // ─── ANÉIS ───
+  
   { id: 30, name: "Anel Coração Azul", price: 1960.00, image: productImages["anelourocoraçãoazul"], material: "ouro", type: "anel", available: true },
   { id: 31, name: "Anel Cruzado Solitário", price: 2940.00, image: productImages["anelourocruzadosolitario"], material: "ouro", type: "anel", available: true },
   { id: 32, name: "Anel de Formatura Clássico", price: 3234.00, image: productImages["anelouroformatura"], material: "ouro", type: "anel", available: true },
@@ -103,7 +103,7 @@ export const products: Product[] = [
   { id: 47, name: "Anel Coração Cravejado", price: 195.00, image: productImages["anelpratacravejadacoração"], material: "prata", type: "anel", available: true },
   { id: 48, name: "Anel Solitário Elegance", price: 201.00, image: productImages["anelsolitárioprata2"], material: "prata", type: "anel", available: true },
 
-  // ─── PULSEIRAS & BRACELETES ───
+  
   { id: 49, name: "Bracelete Rígido", price: 9800.00, image: productImages["braceleteouro"], material: "ouro", type: "bracelete", available: true },
   { id: 50, name: "Pulseira Elos", price: 5390.00, image: productImages["pulseiraouro1"], material: "ouro", type: "pulseira", available: true },
   { id: 51, name: "Pulseira Cartier", price: 14700.00, image: productImages["pulseiraouro3"], material: "ouro", type: "pulseira", available: true },
@@ -118,7 +118,7 @@ export const products: Product[] = [
   { id: 60, name: "Pulseira Rosa Soft", price: 336.00, image: productImages["pulseirapratarosa2"], material: "prata", type: "pulseira", available: true },
   { id: 61, name: "Pulseira Rosa Bright", price: 489.00, image: productImages["pulseirapratarosa3"], material: "prata", type: "pulseira", available: true },
 
-  // ─── COLARES & CONJUNTOS ───
+  
   { id: 62, name: "Colar Trevo", price: 336.00, image: productImages["colarpratatrevo"], material: "prata", type: "colar", available: true },
   { id: 63, name: "Conjunto Coração Azul", price: 420.00, image: productImages["conjuntoprataazulcoração"], material: "prata", type: "colar", available: true },
   { id: 64, name: "Conjunto Coração Branco", price: 448.00, image: productImages["conjuntopratabranco"], material: "prata", type: "colar", available: true },

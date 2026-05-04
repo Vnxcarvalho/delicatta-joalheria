@@ -18,7 +18,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
         className="relative w-full max-w-lg overflow-hidden rounded-lg bg-card shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botão X para fechar */}
+        
         <button
           onClick={onClose}
           className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/70"
@@ -27,7 +27,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           <X className="h-5 w-5" />
         </button>
 
-        {/* Imagem do produto */}
+        
         <div className="aspect-square w-full overflow-hidden bg-muted">
           <img
             src={product.image}
@@ -36,9 +36,9 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           />
         </div>
 
-        {/* Informações do produto */}
+        
         <div className="p-5 space-y-4">
-          {/* Tags */}
+          
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary">{materialLabels[product.material]}</Badge>
             <Badge variant="secondary">{typeLabels[product.type]}</Badge>
@@ -49,19 +49,19 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
             )}
           </div>
 
-          {/* Nome */}
+          
           <h3 className="font-serif text-xl font-bold text-card-foreground md:text-2xl">
             {product.name}
           </h3>
 
-          {/* Detalhes */}
+          
           <div className="space-y-2 text-sm text-muted-foreground">
             <p><span className="font-semibold text-card-foreground">Material:</span> {materialLabels[product.material]}</p>
             <p><span className="font-semibold text-card-foreground">Categoria:</span> {typeLabels[product.type]}</p>
             <p><span className="font-semibold text-card-foreground">Disponibilidade:</span> {product.available ? "Em estoque" : "Indisponível"}</p>
           </div>
 
-          {/* Preço e botão */}
+          
           <div className="flex items-center justify-between pt-2">
             <p className="text-2xl font-bold text-accent">
               {formatPrice(product.price)}

@@ -25,9 +25,7 @@ export function About() {
     <section id="sobre" className="bg-secondary/50 py-16">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          {/* ─────────────────────────────────────────────────────────────────
-           * TÍTULO
-           * ───────────────────────────────────────────────────────────────── */}
+
           <h2 className="mb-6 font-serif text-3xl font-bold text-foreground md:text-4xl">
             {ABOUT_TITLE.split(" ")[0]}{" "}
             <span className="text-accent">
@@ -35,16 +33,12 @@ export function About() {
             </span>
           </h2>
 
-          {/* ─────────────────────────────────────────────────────────────────
-           * TEXTOS DESCRITIVOS
-           * ───────────────────────────────────────────────────────────────── */}
+
           <p className="mb-4 text-lg text-muted-foreground">{ABOUT_TEXT_1}</p>
           <p className="mb-12 text-lg text-muted-foreground">{ABOUT_TEXT_2}</p>
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * DESTAQUES
-         * ───────────────────────────────────────────────────────────────── */}
+
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {highlights.map((item, index) => (
             <div

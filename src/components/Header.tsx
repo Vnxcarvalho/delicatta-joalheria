@@ -19,7 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-primary shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
+          
           <a href="#" className="flex items-center">
             <img
               src={logo}
@@ -57,7 +57,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Menu Mobile */}
+      
       {mobileMenuOpen && (
         <nav className="border-t border-primary-foreground/10 bg-primary md:hidden">
           <ul className="container mx-auto flex flex-col px-4 py-4">

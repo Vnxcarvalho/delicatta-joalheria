@@ -73,9 +73,7 @@ export function Filters({
           </div>
         </div>
 
-        {/* ─────────────────────────────────────────────────────────────────
-         * LINHA INFERIOR: TIPOS DE JOIAS
-         * ───────────────────────────────────────────────────────────────── */}
+        
         <div>
           <h3 className="mb-3 font-semibold text-foreground">Categoria</h3>
           <div className="flex flex-wrap gap-4">
