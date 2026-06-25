@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,13 +10,22 @@ interface ProductModalProps {
 }
 
 export function ProductModal({ product, onClose }: ProductModalProps) {
+  useEffect(() => {
+    // Disable body scroll when modal is open
+    document.body.style.overflow = "hidden";
+    return () => {
+      // Re-enable scroll on unmount
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 pt-8 pb-8 backdrop-blur-sm sm:items-center"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg overflow-hidden rounded-lg bg-card shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+        className="relative my-auto w-full max-w-lg overflow-hidden rounded-lg bg-card shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         
